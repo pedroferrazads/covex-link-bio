@@ -5,186 +5,305 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pedro Ferraz — Covex</title>
 <meta name="description" content="Tráfego pago especialista em advocacia. Google Ads e Meta Ads dentro da OAB, com qualificação antes do lead chegar até você.">
+<meta name="theme-color" content="#FAFAF8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0B0F14;
-    --bg-card: #12181F;
-    --border: #232B34;
-    --text: #F2F5F7;
-    --text-dim: #9AA7B2;
-    --accent: #25D366;
-    --accent-dim: #1B9E4F;
+    --bg: #FAFAF8;
+    --ink: #17181A;
+    --muted: #565C63;
+    --rule: #E3E0D9;
+    --accent: #12312B;
+    --accent-ink: #FAFAF8;
+    --focus: #0B4F6C;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
   body {
     background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
     display: flex;
     justify-content: center;
-    padding: 32px 16px 64px;
-    line-height: 1.5;
+    padding: 56px 24px 72px;
+    -webkit-font-smoothing: antialiased;
   }
-  main {
-    width: 100%;
-    max-width: 480px;
+  main { width: 100%; max-width: 560px; }
+
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
   }
-  .avatar {
-    width: 76px;
-    height: 76px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), #0d7a3b);
+
+  .mark {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 28px;
+  }
+
+  header h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(34px, 8vw, 44px);
+    letter-spacing: -0.01em;
+    margin: 0 0 6px;
+  }
+  header .role {
+    color: var(--muted);
+    font-size: 16px;
+  }
+
+  .rule {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 32px 0;
+  }
+
+  .tagline {
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .tagline b { color: var(--ink); }
+
+  .tension {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(24px, 5.5vw, 30px);
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+    margin: 0 0 20px;
+  }
+  .tension em {
+    font-style: normal;
+    color: var(--muted);
+    display: block;
+  }
+
+  .lead {
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 46ch;
+    margin: 0 0 36px;
+  }
+  .lead strong { color: var(--ink); font-weight: 600; }
+
+  .cta {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
-    font-weight: 700;
-    color: #0B0F14;
-    margin: 0 auto 16px;
-  }
-  header { text-align: center; margin-bottom: 28px; }
-  h1 { font-size: 22px; font-weight: 700; }
-  .role { color: var(--text-dim); font-size: 14px; margin-top: 4px; }
-  .tagline {
-    text-align: center;
-    font-size: 15px;
-    color: var(--accent);
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    margin-bottom: 24px;
-  }
-  .tension {
-    text-align: center;
-    font-size: 17px;
-    font-weight: 600;
-    line-height: 1.45;
-    margin-bottom: 8px;
-  }
-  .tension span { color: var(--text-dim); font-weight: 400; display: block; }
-  section { margin-bottom: 28px; }
-  .lead {
-    font-size: 15px;
-    color: var(--text-dim);
-    text-align: center;
-    margin-bottom: 28px;
-  }
-  .cta {
-    display: block;
-    text-align: center;
+    gap: 10px;
     background: var(--accent);
-    color: #072B14;
-    font-weight: 700;
+    color: var(--accent-ink);
+    font-weight: 600;
     font-size: 16px;
-    padding: 16px;
-    border-radius: 12px;
     text-decoration: none;
-    margin-bottom: 32px;
-    transition: background 0.15s;
+    padding: 17px 20px;
+    min-height: 44px;
+    border-radius: 4px;
+    transition: background-color 200ms ease;
+    cursor: pointer;
   }
-  .cta:active { background: var(--accent-dim); }
+  .cta:hover { background: #0B241F; }
+  .cta svg { width: 19px; height: 19px; flex-shrink: 0; }
+
   h2 {
     font-size: 13px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    letter-spacing: 0.6px;
-    color: var(--text-dim);
-    margin-bottom: 12px;
+    color: var(--muted);
     font-weight: 600;
+    margin: 0 0 22px;
   }
-  .pillars { display: flex; flex-direction: column; gap: 10px; }
-  .pillar {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px 16px;
-    font-size: 14px;
+
+  .items { display: flex; flex-direction: column; }
+  .item {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+    padding: 18px 0;
+    border-top: 1px solid var(--rule);
   }
-  .pillar b { display: block; font-size: 15px; margin-bottom: 2px; }
-  .fit {
+  .item:last-child { border-bottom: 1px solid var(--rule); }
+  .item .num {
+    font-family: 'Fraunces', serif;
+    color: var(--muted);
+    font-size: 15px;
+    padding-top: 2px;
+  }
+  .item .title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 3px;
+  }
+  .item .desc {
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .fit-group { margin-bottom: 22px; }
+  .fit-group:last-child { margin-bottom: 0; }
+  .fit-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin-bottom: 10px;
+  }
+  .fit-label.serve { color: var(--accent); }
+  .fit-label.no-serve { color: var(--muted); }
+  .fit-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .fit-list li {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--ink);
   }
-  .fit p { font-size: 14px; }
-  .fit .yes::before { content: "✅ "; }
-  .fit .no::before { content: "❌ "; }
-  .fit .no { color: var(--text-dim); }
-  footer {
-    text-align: center;
+  .fit-list.no-serve li { color: var(--muted); }
+  .fit-list li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
     margin-top: 8px;
+    flex-shrink: 0;
   }
-  footer a {
-    color: var(--text-dim);
-    text-decoration: none;
+  .fit-list.no-serve li::before { background: var(--rule); }
+
+  footer {
+    margin-top: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     font-size: 14px;
+    color: var(--muted);
   }
-  footer a:hover { color: var(--text); }
+  footer .social {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 6px 0;
+    transition: color 200ms ease;
+  }
+  footer .social:hover { color: var(--ink); }
+  footer svg { width: 18px; height: 18px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+
+  @media (max-width: 420px) {
+    body { padding: 40px 20px 56px; font-size: 16px; }
+    .rule { margin: 26px 0; }
+  }
 </style>
 </head>
 <body>
 <main>
 
+  <div class="mark">COVEX</div>
+
   <header>
-    <div class="avatar">PF</div>
     <h1>Pedro Ferraz</h1>
-    <div class="role">Covex — tráfego pago para advocacia</div>
+    <div class="role">Tráfego pago para escritórios de advocacia</div>
   </header>
 
-  <div class="tagline">atrair → qualificar → fechar contrato</div>
+  <hr class="rule">
 
-  <div class="tension">
+  <div class="tagline">atrair → qualificar → <b>fechar contrato</b></div>
+
+  <p class="tension">
     Agência genérica te entrega lead curioso.
-    <span>A Covex entrega escritório pronto pra fechar contrato.</span>
-  </div>
+    <em>A Covex entrega escritório pronto pra fechar contrato.</em>
+  </p>
 
-  <p class="lead" style="margin-top:16px;">
+  <p class="lead">
     Sou especialista em tráfego pago para advocacia — não atendo qualquer negócio.
-    Estruturo Google Ads e Meta Ads dentro das regras da OAB, com qualificação via
-    WhatsApp antes do lead chegar até você. Advogado, você não recebe curioso —
-    recebe quem tem perfil pra contratar.
+    Estruturo <strong>Google Ads</strong> e <strong>Meta Ads</strong> dentro das regras
+    da OAB, com qualificação via WhatsApp antes do lead chegar até você. Advogado,
+    você não recebe curioso — recebe quem tem perfil pra contratar.
   </p>
 
   <a class="cta" href="https://wa.me/5511984839848?text=Quero%20diagnosticar%20os%20gargalos%20do%20meu%20escrit%C3%B3rio" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-1.746-.872-2.891-1.557-4.042-3.53-.305-.526.305-.489.874-1.628.098-.198.049-.371-.05-.52-.099-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.298-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.05 3.13 4.966 4.263 2.916 1.133 2.916.755 3.437.706.52-.05 1.694-.693 1.936-1.363.242-.669.242-1.24.169-1.363-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.486 2 2 6.486 2 12.001c0 1.947.548 3.766 1.499 5.31L2.06 22l4.813-1.42a9.951 9.951 0 0 0 5.128 1.42h.001c5.514 0 10-4.487 10-10.001C21.999 6.486 17.514 2 12.001 2zm0 18.176h-.001a8.16 8.16 0 0 1-4.166-1.14l-.299-.178-3.099.915.928-3.02-.194-.31a8.13 8.13 0 0 1-1.269-4.442c0-4.51 3.669-8.176 8.181-8.176 2.184 0 4.238.852 5.783 2.399a8.106 8.106 0 0 1 2.396 5.78c0 4.511-3.712 8.172-8.26 8.172z"/></svg>
     Quero diagnosticar os gargalos do meu escritório
   </a>
 
+  <hr class="rule">
+
   <section>
-    <h2>Como eu trabalho</h2>
-    <div class="pillars">
-      <div class="pillar">
-        <b>Google Ads (Search)</b>
-        Capturo quem já está buscando advogado agora.
+    <h2>Como trabalho</h2>
+    <div class="items">
+      <div class="item">
+        <span class="num">01</span>
+        <div>
+          <div class="title">Google Ads (Search)</div>
+          <div class="desc">Capturo quem já está buscando advogado agora.</div>
+        </div>
       </div>
-      <div class="pillar">
-        <b>Meta Ads</b>
-        Construo autoridade e gero demanda dentro da lei.
+      <div class="item">
+        <span class="num">02</span>
+        <div>
+          <div class="title">Meta Ads</div>
+          <div class="desc">Construo autoridade e gero demanda dentro da lei.</div>
+        </div>
       </div>
-      <div class="pillar">
-        <b>Qualificação via WhatsApp</b>
-        Filtro quem tem perfil pra contratar antes de chegar até você.
+      <div class="item">
+        <span class="num">03</span>
+        <div>
+          <div class="title">Qualificação via WhatsApp</div>
+          <div class="desc">Filtro quem tem perfil pra contratar antes de chegar até você.</div>
+        </div>
       </div>
     </div>
   </section>
+
+  <hr class="rule">
 
   <section>
     <h2>Pra quem é isso</h2>
-    <div class="fit">
-      <p class="yes">Escritório que fatura R$15-20k/mês por sócio e entende marketing como investimento</p>
-      <p class="yes">Áreas com volume de busca ativo (Previdenciário, Família) ou que já anuncia e quer escalar</p>
-      <p class="no">Quer resultado garantido ou modelo de percentual sobre caso fechado</p>
-      <p class="no">Vê anúncio como gasto, não como investimento</p>
+    <div class="fit-group">
+      <div class="fit-label serve">Serve pra você se</div>
+      <ul class="fit-list">
+        <li>Fatura R$15-20k/mês por sócio e entende marketing como investimento</li>
+        <li>Atua em área com volume de busca ativo (Previdenciário, Família) ou já anuncia e quer escalar</li>
+      </ul>
+    </div>
+    <div class="fit-group">
+      <div class="fit-label no-serve">Não serve pra você se</div>
+      <ul class="fit-list no-serve">
+        <li>Quer resultado garantido ou modelo de percentual sobre caso fechado</li>
+        <li>Vê anúncio como gasto, não como investimento</li>
+      </ul>
     </div>
   </section>
 
+  <hr class="rule">
+
   <a class="cta" href="https://wa.me/5511984839848?text=Quero%20diagnosticar%20os%20gargalos%20do%20meu%20escrit%C3%B3rio" target="_blank" rel="noopener">
-    Chamar no WhatsApp
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-1.746-.872-2.891-1.557-4.042-3.53-.305-.526.305-.489.874-1.628.098-.198.049-.371-.05-.52-.099-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.298-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.05 3.13 4.966 4.263 2.916 1.133 2.916.755 3.437.706.52-.05 1.694-.693 1.936-1.363.242-.669.242-1.24.169-1.363-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.486 2 2 6.486 2 12.001c0 1.947.548 3.766 1.499 5.31L2.06 22l4.813-1.42a9.951 9.951 0 0 0 5.128 1.42h.001c5.514 0 10-4.487 10-10.001C21.999 6.486 17.514 2 12.001 2zm0 18.176h-.001a8.16 8.16 0 0 1-4.166-1.14l-.299-.178-3.099.915.928-3.02-.194-.31a8.13 8.13 0 0 1-1.269-4.442c0-4.51 3.669-8.176 8.181-8.176 2.184 0 4.238.852 5.783 2.399a8.106 8.106 0 0 1 2.396 5.78c0 4.511-3.712 8.172-8.26 8.172z"/></svg>
+    Falar no WhatsApp
   </a>
 
   <footer>
-    <a href="https://instagram.com/pedroferraz.ads" target="_blank" rel="noopener">@pedroferraz.ads</a>
+    <span>Covex Agency</span>
+    <a class="social" href="https://instagram.com/pedroferraz.ads" target="_blank" rel="noopener" aria-label="Instagram @pedroferraz.ads">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+      @pedroferraz.ads
+    </a>
   </footer>
 
 </main>
