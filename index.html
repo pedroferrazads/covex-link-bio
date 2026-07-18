@@ -111,29 +111,6 @@
     text-align: left;
   }
 
-  .checklist { margin-bottom: 24px; }
-  .checklist .label {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .checklist .label::before {
-    content: "";
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--violet);
-  }
-  .checklist ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
-  .checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; color: var(--muted); }
-  .checklist li svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; color: var(--green); }
-  .checklist li.final { color: var(--text); font-weight: 600; }
-  .checklist li.final svg { color: #F5C84C; }
-
   .cta {
     display: flex;
     align-items: center;
@@ -182,9 +159,14 @@
   .item .title { font-weight: 600; font-size: 15px; margin-bottom: 2px; text-align: left; }
   .item .desc { font-size: 14px; color: var(--muted); text-align: left; }
 
-  .fit p { font-size: 14.5px; color: var(--muted); margin: 0; }
-  .fit p + p { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--card-border); }
-  .fit b { color: var(--text); }
+  .fit-group { margin-bottom: 16px; }
+  .fit-group:last-child { margin-bottom: 0; padding-top: 16px; border-top: 1px solid var(--card-border); }
+  .fit-label { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px; }
+  .fit-label.yes { color: #B98CFF; }
+  .fit-label.no { color: var(--muted-dim); }
+  .fit ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .fit li { font-size: 14.5px; color: var(--muted); padding-left: 16px; position: relative; }
+  .fit li::before { content: "—"; position: absolute; left: 0; color: var(--muted-dim); }
 
   .closing { margin-top: 44px; font-size: 15px; color: var(--muted); }
 
@@ -238,32 +220,22 @@
   </div>
 
   <h2 class="tension">
-    Agência genérica te entrega lead curioso.
-    <span class="accent">A Covex entrega escritório pronto pra fechar contrato.</span>
+    Sem controle sobre quando o cliente aparece,
+    <span class="accent">seu escritório cresce por acaso.</span>
   </h2>
 
   <p class="lead">
-    Eu uno <b>tráfego pago</b> com <b>especialização em advocacia</b> pra montar uma
-    estrutura que atrai o advogado certo, qualifica pelo WhatsApp e chega até você
-    <b>só quem tem perfil pra contratar</b>.
+    Indicação não escala — e você não decide quando ela seca.
+    Eu estruturo <b>Google Ads</b> e <b>Meta Ads</b> especializados em advocacia,
+    com qualificação antes do WhatsApp. Você só fala com quem
+    <b>já quer contratar</b>.
   </p>
-
-  <div class="card checklist" data-reveal>
-    <div class="label">O caminho do seu próximo cliente</div>
-    <ul>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Viu o anúncio e clicou</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Foi qualificado antes de falar com você</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tem estrutura pra fechar contrato</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Quer resolver ainda este mês</li>
-      <li class="final"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.4L22 9.3l-5 4.8 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.8 7.1-.9z"/></svg> Cliente pronto — direto no seu WhatsApp</li>
-    </ul>
-  </div>
 
   <a class="cta" href="https://wa.me/5511984839848?text=Quero%20diagnosticar%20os%20gargalos%20do%20meu%20escrit%C3%B3rio" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-1.746-.872-2.891-1.557-4.042-3.53-.305-.526.305-.489.874-1.628.098-.198.049-.371-.05-.52-.099-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.298-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.05 3.13 4.966 4.263 2.916 1.133 2.916.755 3.437.706.52-.05 1.694-.693 1.936-1.363.242-.669.242-1.24.169-1.363-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.486 2 2 6.486 2 12.001c0 1.947.548 3.766 1.499 5.31L2.06 22l4.813-1.42a9.951 9.951 0 0 0 5.128 1.42h.001c5.514 0 10-4.487 10-10.001C21.999 6.486 17.514 2 12.001 2zm0 18.176h-.001a8.16 8.16 0 0 1-4.166-1.14l-.299-.178-3.099.915.928-3.02-.194-.31a8.13 8.13 0 0 1-1.269-4.442c0-4.51 3.669-8.176 8.181-8.176 2.184 0 4.238.852 5.783 2.399a8.106 8.106 0 0 1 2.396 5.78c0 4.511-3.712 8.172-8.26 8.172z"/></svg>
     Quero diagnosticar os gargalos do meu escritório
   </a>
-  <p class="caption">Me conta seu cenário no WhatsApp. Eu te digo onde está o gargalo — sem compromisso.</p>
+  <p class="caption">Sem discurso pronto. Eu te falo se compensa investir agora ou não.</p>
 
   <section class="block" data-reveal>
     <div class="sec-label">Como trabalho</div>
@@ -295,12 +267,24 @@
   <section class="block" data-reveal>
     <div class="sec-label">Pra quem é isso</div>
     <div class="card fit">
-      <p><b>Pra quem é:</b> escritórios que faturam R$15-20k/mês por sócio e entendem marketing como investimento.</p>
-      <p><b>Pra quem não é:</b> quem quer resultado garantido ou percentual sobre caso fechado. Eu cobro pela gestão — não pelo que não posso controlar sozinho.</p>
+      <div class="fit-group">
+        <div class="fit-label yes">Faz sentido se você</div>
+        <ul>
+          <li>Fatura R$15-20k/mês por sócio</li>
+          <li>Trata marketing como investimento, não gasto</li>
+        </ul>
+      </div>
+      <div class="fit-group">
+        <div class="fit-label no">Não faz sentido se você</div>
+        <ul>
+          <li>Quer percentual sobre caso fechado</li>
+          <li>Espera resultado garantido</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <p class="closing" data-reveal>Quer saber onde está o gargalo da sua captação?</p>
+  <p class="closing" data-reveal>Antes de gastar mais em anúncio, descubra onde está travando.</p>
 
   <a class="cta" style="margin-top:16px;" href="https://wa.me/5511984839848?text=Quero%20diagnosticar%20os%20gargalos%20do%20meu%20escrit%C3%B3rio" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-1.746-.872-2.891-1.557-4.042-3.53-.305-.526.305-.489.874-1.628.098-.198.049-.371-.05-.52-.099-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.298-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.05 3.13 4.966 4.263 2.916 1.133 2.916.755 3.437.706.52-.05 1.694-.693 1.936-1.363.242-.669.242-1.24.169-1.363-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.486 2 2 6.486 2 12.001c0 1.947.548 3.766 1.499 5.31L2.06 22l4.813-1.42a9.951 9.951 0 0 0 5.128 1.42h.001c5.514 0 10-4.487 10-10.001C21.999 6.486 17.514 2 12.001 2zm0 18.176h-.001a8.16 8.16 0 0 1-4.166-1.14l-.299-.178-3.099.915.928-3.02-.194-.31a8.13 8.13 0 0 1-1.269-4.442c0-4.51 3.669-8.176 8.181-8.176 2.184 0 4.238.852 5.783 2.399a8.106 8.106 0 0 1 2.396 5.78c0 4.511-3.712 8.172-8.26 8.172z"/></svg>
