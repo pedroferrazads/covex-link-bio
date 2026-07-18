@@ -125,10 +125,6 @@
   .cta:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
   .cta svg { width: 19px; height: 19px; flex-shrink: 0; }
 
-  .caption { font-size: 13px; color: var(--muted-dim); margin-top: 12px; max-width: 40ch; }
-
-  .closing { margin-top: 44px; font-size: 15px; color: var(--muted); }
-
   footer {
     margin-top: 40px;
     display: flex;
@@ -148,12 +144,8 @@
   footer a:hover { color: var(--text); }
   footer svg { width: 15px; height: 15px; }
 
-  [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity 500ms ease, transform 500ms ease; }
-  [data-reveal].in-view { opacity: 1; transform: translateY(0); }
-
   @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; }
-    [data-reveal] { opacity: 1; transform: none; }
   }
 </style>
 </head>
@@ -194,14 +186,6 @@
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-1.746-.872-2.891-1.557-4.042-3.53-.305-.526.305-.489.874-1.628.098-.198.049-.371-.05-.52-.099-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.298-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.05 3.13 4.966 4.263 2.916 1.133 2.916.755 3.437.706.52-.05 1.694-.693 1.936-1.363.242-.669.242-1.24.169-1.363-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.486 2 2 6.486 2 12.001c0 1.947.548 3.766 1.499 5.31L2.06 22l4.813-1.42a9.951 9.951 0 0 0 5.128 1.42h.001c5.514 0 10-4.487 10-10.001C21.999 6.486 17.514 2 12.001 2zm0 18.176h-.001a8.16 8.16 0 0 1-4.166-1.14l-.299-.178-3.099.915.928-3.02-.194-.31a8.13 8.13 0 0 1-1.269-4.442c0-4.51 3.669-8.176 8.181-8.176 2.184 0 4.238.852 5.783 2.399a8.106 8.106 0 0 1 2.396 5.78c0 4.511-3.712 8.172-8.26 8.172z"/></svg>
     Quero diagnosticar os gargalos do meu escritório
   </a>
-  <p class="caption">Sem discurso pronto. Eu te falo se compensa investir agora ou não.</p>
-
-  <p class="closing" data-reveal>Ainda dependendo só de indicação? Vamos conversar.</p>
-
-  <a class="cta" style="margin-top:16px;" href="https://wa.me/5511984839848?text=Quero%20diagnosticar%20os%20gargalos%20do%20meu%20escrit%C3%B3rio" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-1.746-.872-2.891-1.557-4.042-3.53-.305-.526.305-.489.874-1.628.098-.198.049-.371-.05-.52-.099-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.298-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.05 3.13 4.966 4.263 2.916 1.133 2.916.755 3.437.706.52-.05 1.694-.693 1.936-1.363.242-.669.242-1.24.169-1.363-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2C6.486 2 2 6.486 2 12.001c0 1.947.548 3.766 1.499 5.31L2.06 22l4.813-1.42a9.951 9.951 0 0 0 5.128 1.42h.001c5.514 0 10-4.487 10-10.001C21.999 6.486 17.514 2 12.001 2zm0 18.176h-.001a8.16 8.16 0 0 1-4.166-1.14l-.299-.178-3.099.915.928-3.02-.194-.31a8.13 8.13 0 0 1-1.269-4.442c0-4.51 3.669-8.176 8.181-8.176 2.184 0 4.238.852 5.783 2.399a8.106 8.106 0 0 1 2.396 5.78c0 4.511-3.712 8.172-8.26 8.172z"/></svg>
-    Falar no WhatsApp
-  </a>
 
   <footer>
     <span>Covex Agency</span>
@@ -211,16 +195,5 @@
     </a>
   </footer>
 </main>
-
-<script>
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
-  } else {
-    document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('in-view'));
-  }
-</script>
 </body>
 </html>
