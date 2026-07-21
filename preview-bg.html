@@ -34,6 +34,12 @@
   .glow { position: fixed; border-radius: 50%; filter: blur(70px); pointer-events: none; z-index: 0; }
   .glow-1 { width: 620px; height: 620px; top: -280px; left: -220px; background: radial-gradient(circle, rgba(229,181,103,0.20), transparent 70%); }
   .glow-2 { width: 560px; height: 560px; bottom: -260px; right: -200px; background: radial-gradient(circle, rgba(193,144,47,0.16), transparent 70%); }
+  body.hide-glows .glow { display: none; }
+
+  /* top-center radial glow (referência gradient-background-4, adaptado ao dourado) */
+  #topglow { position: fixed; inset: 0; z-index: 0; pointer-events: none; display: none;
+    background: radial-gradient(125% 125% at 50% -50%, rgba(229,181,103,0.22) 40%, transparent 100%); }
+  body.glow-top #topglow { display: block; }
 
   /* pattern layer */
   #pattern { position: fixed; inset: 0; z-index: 0; pointer-events: none;
@@ -80,10 +86,12 @@
   <button data-p="dots" class="on">Pontinhos</button>
   <button data-p="grid">Grade</button>
   <button data-p="diagonal">Diagonais</button>
+  <button data-p="glow">Brilho topo</button>
 </div>
 
 <div class="glow glow-1" aria-hidden="true"></div>
 <div class="glow glow-2" aria-hidden="true"></div>
+<div id="topglow" aria-hidden="true"></div>
 <div id="pattern" class="dots" aria-hidden="true"></div>
 
 <main>
@@ -129,7 +137,14 @@
     b.addEventListener('click', () => {
       document.querySelectorAll('#toggle button').forEach(x => x.classList.remove('on'));
       b.classList.add('on');
-      pat.className = b.dataset.p;
+      const p = b.dataset.p;
+      if (p === 'glow') {
+        pat.className = '';               // sem textura
+        document.body.classList.add('glow-top', 'hide-glows');
+      } else {
+        pat.className = p;                // dots / grid / diagonal
+        document.body.classList.remove('glow-top', 'hide-glows');
+      }
     });
   });
 </script>
